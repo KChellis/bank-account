@@ -1,10 +1,15 @@
 body {
-  background-color: #00006b;
-  background-image: url("https://www.transparenttextures.com/patterns/black-twill.png");
+  background:
+  linear-gradient(
+    rgba(25, 25, 25, 0.48),
+    rgba(25, 25, 25, 0.48)
+  ), url("../img/money.jpeg") no-repeat center center fixed;
+  background-size: cover;
+  height: 100%;
 }
 
 .container-fluid {
-  margin: 10% 25%;
+  margin: 10% 20%;
 }
 
 .card {

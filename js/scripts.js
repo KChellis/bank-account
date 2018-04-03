@@ -2,12 +2,27 @@ function Account(name, balance) {
   this.name = name;
   this.balance = balance;
 }
-
-Account.prototype.withdraw = function (num) {
-  return this.balance -= num;
-};
-
-Account.prototype.deposit = function (num) {
+function addCommas(number) {
+  var string = number.toString();
+  var array = [];
+  var extra = "";
+  if (string.length < 3) {
+    return string;
+  }
+  if (string.length % 3 === 1) {
+    extra = string.slice(0, 1);
+  } else if (string.length % 3 === 2) {
+    extra = string.slice(0, 2);
+  }
+  for (var i = (string.length - 3) ; i >= 0; i-=3) {
+    array.unshift(string.slice(i, 3 + i));
+  }
+  if (extra) {
+    return extra + "," + array.join(",");
+  }
+  return array.join(",");
+}
+Account.prototype.transaction = function (num) {
   return this.balance += num;
 };
 
@@ -17,28 +32,31 @@ $(function(){
     var userName = $('#name').val();
     var userBalance = parseInt($('#balance').val());
     var getBalance = new Account(userName, userBalance);
-    $('#showBalance').text(getBalance.balance);
+    var button;
+
+    $('#showBalance').text(addCommas(getBalance.balance));
     $('.card').slideUp();
     $('#user').text(userName);
     $('.hidden').show();
     $('#ledger').append('<tr><td>Created Account</td><td>' + getBalance.balance + '</td></tr>');
 
-    $('#withdrawForm').submit(function(event) {
-      event.preventDefault();
-      var withdraw = parseInt($('#withdraw').val());
-      var newBalance = getBalance.withdraw(withdraw);
-      $('#showBalance').text(newBalance);
-      $('#ledger').append('<tr><td>Withdrew ' + withdraw + '</td><td>' + newBalance + '</td></tr>');
+    $(".button").click(function(){
+      button = $(this).val();
     });
 
-    $('#depositForm').submit(function(event) {
+    $('#wdForm').submit(function(event) {
       event.preventDefault();
-      var deposit = parseInt($('#deposit').val());
-      var newBalance = getBalance.deposit(deposit);
-      $('#showBalance').text(newBalance);
-      $('#ledger').append('<tr><td>Deposited ' + deposit + '</td><td>' + newBalance + '</td></tr>');
+      var amount = parseInt($('#amount').val());
+      var action;
+      if (button === "withdraw") {
+        amount = -amount;
+        action = "Withdrew";
+      } else if (button === "deposit") {
+        action = "Deposited";
+      }
+      var newBalance = getBalance.transaction(amount);
+      $('#showBalance').text(addCommas(newBalance));
+      $('#ledger').append('<tr><td>' + action + " " + Math.abs(amount) + '</td><td>' + newBalance + '</td></tr>');
     });
   });
-
-
 });

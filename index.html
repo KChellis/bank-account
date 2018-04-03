@@ -27,18 +27,12 @@
       <div class="hidden card">
         <h1><span id="user"></span>'s Bank Account</h1>
         <p id="yourBalance">Your current balance is: $<span id="showBalance"></span>.</p>
-        <form id="withdrawForm">
+        <form id="wdForm">
           <div class="form-group">
-            <label>Make a withdrawl:</label>
-            <input class="mr-2" id="withdraw" type="number" name="withdraw" required>
-            <button class="btn btn-success" type="submit" name="button">Withdraw money</button>
-          </div>
-        </form>
-        <form id="depositForm">
-          <div class="form-group">
-            <label>Make a deposit:</label>
-            <input class="mr-2" id="deposit" type="number" name="deposit" required>
-            <button class="btn btn-success" type="submit" name="button">Deposit money</button>
+            <label>Make a withdrawl or deposit:</label>
+            <input class="mr-2" id="amount" type="number" name="amount" required>
+            <button class="button btn btn-success" type="submit" value="withdraw">Withdraw money</button>
+            <button class="button btn btn-success" type="submit" value="deposit">Deposit money</button>
           </div>
         </form>
         <h2>Ledger</h2>
