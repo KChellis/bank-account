@@ -1,7 +1,29 @@
+body {
+  color: white;
+  background-color: #00006b;
+  background-image: url("https://www.transparenttextures.com/patterns/black-twill.png");
+}
+
+.container-fluid {
+  margin: 10% 25%;
+}
+
+.form-control {
+  width: 20%;
+}
+
 .hidden {
   display: none;
 }
 
+.table {
+  width: 30%;
+}
+
 #yourBalance {
   font-size: 24px;
+}
+
+#deposit {
+  width: 190px;
 }

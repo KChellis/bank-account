@@ -14,11 +14,11 @@
       <form id="acct-submit">
         <div class="form-group">
           <label>Enter your name:</label>
-          <input id="name" class="form-control" type="text" name="name">
+          <input id="name" class="form-control" type="text" name="name" required>
         </div>
         <div class="form-group">
           <label>Enter initial deposit:</label>
-          <input id="balance" class="form-control" type="number" name="balance">
+          <input id="balance" class="form-control" type="number" name="balance" required>
         </div>
         <button class="btn btn-success mb-3" type="submit" name="button">Check Balance</button>
       </form>
@@ -27,14 +27,14 @@
         <form id="withdrawForm">
           <div class="form-group">
             <label>Make a withdrawl:</label>
-            <input class="mr-2" id="withdraw" type="number" name="withdraw">
+            <input class="mr-2" id="withdraw" type="number" name="withdraw" required>
             <button class="btn btn-success" type="submit" name="button">Withdraw money</button>
           </div>
         </form>
         <form id="depositForm">
           <div class="form-group">
             <label>Make a deposit:</label>
-            <input class="mr-2" id="deposit" type="number" name="deposit">
+            <input class="mr-2" id="deposit" type="number" name="deposit" required>
             <button class="btn btn-success" type="submit" name="button">Deposit money</button>
           </div>
         </form>
