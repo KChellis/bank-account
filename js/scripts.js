@@ -18,7 +18,8 @@ $(function(){
     var userBalance = parseInt($('#balance').val());
     var getBalance = new Account(userName, userBalance);
     $('#showBalance').text(getBalance.balance);
-    $('#acct-submit').slideUp();
+    $('.card').slideUp();
+    $('#user').text(userName);
     $('.hidden').show();
     $('#ledger').append('<tr><td>Created Account</td><td>' + getBalance.balance + '</td></tr>');
 
