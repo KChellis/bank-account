@@ -9,6 +9,48 @@
     <title>Bank Account</title>
   </head>
   <body>
-    
+    <div class="container-fluid">
+      <h1>Your Bank Account</h1>
+      <form id="acct-submit">
+        <div class="form-group">
+          <label>Enter your name:</label>
+          <input id="name" class="form-control" type="text" name="name">
+        </div>
+        <div class="form-group">
+          <label>Enter initial deposit:</label>
+          <input id="balance" class="form-control" type="number" name="balance">
+        </div>
+        <button class="btn btn-success mb-3" type="submit" name="button">Check Balance</button>
+      </form>
+      <div class="hidden">
+        <p id="yourBalance">Your current balance is: $<span id="showBalance"></span>.</p>
+        <form id="withdrawForm">
+          <div class="form-group">
+            <label>Make a withdrawl:</label>
+            <input class="mr-2" id="withdraw" type="number" name="withdraw">
+            <button class="btn btn-success" type="submit" name="button">Withdraw money</button>
+          </div>
+        </form>
+        <form id="depositForm">
+          <div class="form-group">
+            <label>Make a deposit:</label>
+            <input class="mr-2" id="deposit" type="number" name="deposit">
+            <button class="btn btn-success" type="submit" name="button">Deposit money</button>
+          </div>
+        </form>
+        <h2>Ledger</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Activity</th>
+              <th scope="col">Balance</th>
+            </tr>
+          </thead>
+          <tbody id="ledger">
+
+          </tbody>
+        </table>
+      </div>
+    </div>
   </body>
 </html>
